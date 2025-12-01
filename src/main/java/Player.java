@@ -1,4 +1,4 @@
-public class Player {
+public class Player implements Comparable<Player> {
     private int id;
     private String name;
     private int strength;
@@ -33,6 +33,14 @@ public class Player {
         this.strength = strength;
     }
 
-    //    Ваша задача — разработать класс, управляющий турниром игроков.
-//    Каждый игрок описывается дата-классом Player с полями id, name, strength (сила).
+    @Override
+    public int compareTo(Player o) {
+        if (this.strength < o.strength) {
+            return 2;
+        } else if (this.strength > o.strength) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }

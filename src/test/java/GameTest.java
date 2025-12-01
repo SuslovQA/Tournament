@@ -8,8 +8,8 @@ import java.util.List;
 public class GameTest {
     Game game = new Game();
 
-    Player player1 = new Player(1, "Nick", 200);
-    Player player2 = new Player(2, "Doozy", 250);
+    Player player1 = new Player(1, "Nick", 450);
+    Player player2 = new Player(2, "Doozy", 350);
 
     @BeforeEach
     public void setup() {
@@ -19,6 +19,8 @@ public class GameTest {
 
     @Test
     public void test() {
+//        game.round("ick", "Doozy");
 
+        System.out.println(game.round("Doozy", "Nick"));
     }
 }

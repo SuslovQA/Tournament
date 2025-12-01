@@ -19,22 +19,38 @@ public class Game {
         return players;
     }
 
-    public int round (String playerName1, String playerName2) {
-        if (playerName1.getStrength > playerName2.getStrength) {
-            return 1;
-        } else if (playerName1.getStrength < playerName2.getStrength) {
-            return 2;
-        } else {
-            return 0;
+    public int round(String playerName1, String playerName2) {
+
+        if (!players.contains(playerName1)) {
+            throw new NotRegisteredException("Один из игроков не зарегистрирован!");
+        }
+        if (!players.contains(playerName2)) {
+            throw new NotRegisteredException("Jllll")
         }
 
+        Player player1 = null;
+        Player player2 = null;
 
-//        Dыигрывает тот игрок, у которого больше strength (сила), если сила одинаковая,
+
+        for (Player player : players) {
+            if (player.getName().equals(playerName1)) {
+                player1 = player;
+            }
+            if (player.getName().equals(playerName2)) {
+                player2 = player;
+            }
+        }
+        return player1.compareTo(player2);
+    }
+}
+
+
+//        Выигрывает тот игрок, у которого больше strength (сила), если сила одинаковая,
 ////// то будет ничья. Метод должен возвращать одно число — 0 в случае ничьи,
 ////// 1 в случае победы первого игрока и 2 в случае победы второго игрока.
-    }
 
-    //Сам же турнир описывается классом Game с методами:
+
+//Сам же турнир описывается классом Game с методами:
 ////
 ////register (Player player) — метод регистрации игрока, если игрок не зарегистрирован,
 //// то он не сможет играть в турнире.
@@ -47,4 +63,4 @@ public class Game {
 //// Выигрывает тот игрок, у которого больше strength (сила), если сила одинаковая,
 //// то будет ничья. Метод должен возвращать одно число — 0 в случае ничьи,
 //// 1 в случае победы первого игрока и 2 в случае победы второго игрока.
-}
+
