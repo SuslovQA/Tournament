@@ -1,28 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
-    private List<Player> players = new ArrayList<>();
+    protected Map<String, Player> players = new HashMap<>();
+
 
     public void register(Player player) {
-        for (Player existingPlayer : players) {
-            if (existingPlayer.equals(player)) {
-                throw new AlreadyRegisteredException(
-                        "Пользователь с именем: " + player.getName() + " уже зарегистрирован!"
-                );
-            }
+        if (players.containsKey(player.getName())) {
+            throw new AlreadyRegisteredException("Игрок с ником: " + player.getName() + " уже зарешистрирован!");
         }
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
-
     public Player findByName(String name) {
-        for (Player player : players) {
-            if (player.getName().equals(name)) {
-                return player;
-            }
-        }
-        return null;
+        return players.get(name);
     }
 
     public int round(String playerName1, String playerName2) {
