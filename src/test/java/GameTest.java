@@ -83,7 +83,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldThrowAlreadyException() {
+    public void shouldThrowAlreadyRegisteredException() {
 
         Assertions.assertThrows(AlreadyRegisteredException.class, () -> {
             game.register(player1);

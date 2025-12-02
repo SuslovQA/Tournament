@@ -1,7 +1,7 @@
 public class Player {
-    private int id;
-    private String name;
-    private int strength;
+    protected int id;
+    protected String name;
+    protected int strength;
 
     public int getId() {
         return id;
