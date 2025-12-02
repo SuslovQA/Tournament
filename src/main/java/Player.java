@@ -1,4 +1,4 @@
-public class Player implements Comparable<Player> {
+public class Player {
     private int id;
     private String name;
     private int strength;
@@ -31,16 +31,5 @@ public class Player implements Comparable<Player> {
         this.id = id;
         this.name = name;
         this.strength = strength;
-    }
-
-    @Override
-    public int compareTo(Player o) {
-        if (this.strength < o.strength) {
-            return 2;
-        } else if (this.strength > o.strength) {
-            return 1;
-        } else {
-            return 0;
-        }
     }
 }
